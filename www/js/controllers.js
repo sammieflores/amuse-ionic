@@ -10,67 +10,89 @@ angular.module('amuse.controllers', [])
   //});
 
   // Form data for the login modal
-  $scope.loginData = {};
+  // $scope.loginData = {};
 
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
+  // Create the tile modal that we will use later
+  $ionicModal.fromTemplateUrl('templates/tile.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
   });
 
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
+  // Triggered in the tile modal to close it
+  $scope.closeTile = function() {
     $scope.modal.hide();
   };
 
-  // Open the login modal
-  $scope.login = function() {
+  // Open the tile modal
+  $scope.tile = function() {
     $scope.modal.show();
   };
 
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
-
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-  };
 })
 
 .controller('TilesCtrl', function($scope) {
+
+  var currentStart = 0
+
   $scope.tiles = [
-    { title: 'cool', id: 1 },
-    { title: 'amazing', id: 2 },
-    { title: 'inspiring', id: 3 },
-    { title: 'lovely', id: 4 },
-    { title: 'sweet', id: 5 },
-    { title: 'gorgeous', id: 6 },
-    { title: 'unique', id: 7 },
-    { title: 'creative', id: 8 },
-    { title: 'innovative', id: 9 },
-    { title: 'thoughtful', id: 10 },
-    { title: 'neat', id: 11 },
-    { title: 'different', id: 12 },
-    { title: 'interesting', id: 13 },
-    { title: 'crazy', id: 14 },
-    { title: 'wonderful', id: 15 },
-    { title: 'lazy', id: 16 },
-    { title: 'dark', id: 17 },
-    { title: 'evocative', id: 18 },
-    { title: 'edgy', id: 19 },
-    { title: 'intricate', id: 20 },
-    { title: 'detailed', id: 21 },
-    { title: 'mysterious', id: 22 },
-    { title: 'ominous', id: 23 },
-    { title: 'happy', id: 24 },
-    { title: 'talented', id: 25 },
-    { title: 'fresh', id: 26 },
-  ];
+    { title: 'cool' },
+    { title: 'amazing' },
+    { title: 'inspiring', },
+    { title: 'lovely' },
+    { title: 'sweet' },
+    { title: 'gorgeous' },
+    { title: 'unique' },
+    { title: 'creative' },
+    { title: 'innovative' },
+    { title: 'thoughtful' },
+    { title: 'neat' },
+    { title: 'different' },
+    { title: 'interesting' },
+    { title: 'crazy' },
+    { title: 'wonderful' },
+    { title: 'lazy' },
+    { title: 'dark' },
+    { title: 'evocative' },
+    { title: 'edgy' },
+    { title: 'intricate' },
+    { title: 'detailed' },
+    { title: 'mysterious' },
+    { title: 'ominous' },
+    { title: 'happy' },
+    { title: 'talented' },
+    { title: 'fresh' }
+  ],
+
+  $scope.addTiles = function() {
+    for (var i = currentStart; i < currentStart+10; i++) {
+      $scope.tiles.push("Tile " + i)
+    }
+
+    currentStart += 10
+  }
+
+  $scope.addTiles()
+  // SAM: important 
+  $scope.$broadcast('scroll.infiniteScrollComplete')
 })
+
 
 .controller('TileCtrl', function($scope, $stateParams) {
 });
+
+// .controller('MainCtrl', function($scope) {
+//   var currentStart = 0
+//   $scope.items = []
+
+
+//   $scope.addItems = function() {
+//     for (var i = currentStart; i < currentStart+10; i++) {
+//       $scope.items.push("Item " + i)
+//     }
+
+//     currentStart += 10
+//   }
+
+//   $scope.addItems()
+// })

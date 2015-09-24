@@ -1,15 +1,21 @@
 <ion-view view-title="Amuse FEED">
-  <ion-content>
+  <ion-content ng-controller="TilesCtrl">
     <ion-list>
-      <ion-item ng-repeat="tile in tiles" href="#/app/tiles/{{tile.id}}">
+      <ion-item ng-repeat="tile in tiles track by $index" ng-click="tile()">
         
 
-      <div class="row">
+      {{tile.title}}
+
+<!--       <div class="row">
         <div class="col col-50">{{tile.title}}</div>
         <div class="col">{{tile.title}}</div>
-      </div>
+      </div> -->
 
       </ion-item>
     </ion-list>
+
+    <!-- SAM: attempt to add infinite scroll -->
+        <ion-infinite-scroll on-infinite="addTiles()"></ion-infinite-scroll>
+
   </ion-content>
 </ion-view>

@@ -32,23 +32,24 @@ angular.module('amuse', ['ionic', 'amuse.controllers'])
     controller: 'AppCtrl'
   })
 
-  .state('app.search', {
-    url: '/search',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/search.html'
-      }
-    }
-  })
+  // .state('app.search', {
+  //   url: '/search',
+  //   views: {
+  //     'menuContent': {
+  //       templateUrl: 'templates/search.html'
+  //     }
+  //   }
+  // })
 
-  .state('app.browse', {
-      url: '/browse',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
-        }
-      }
-    })
+  // .state('app.browse', {
+  //     url: '/browse',
+  //     views: {
+  //       'menuContent': {
+  //         templateUrl: 'templates/browse.html'
+  //       }
+  //     }
+  //   })
+
     .state('app.in', {
       url: '/tiles',
       views: {
@@ -71,3 +72,4 @@ angular.module('amuse', ['ionic', 'amuse.controllers'])
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/tiles');
 });
+
