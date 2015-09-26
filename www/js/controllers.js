@@ -36,7 +36,7 @@ angular.module('amuse.controllers', [])
   var currentStart = 0
 
   $scope.tiles = [
-    { title: 'cool' },
+    { title: 'cool', url:'http://kairos.technorhetoric.net/16.3/topoi/johnson-eilola/media/chatroulette.jpg' },
     { title: 'amazing' },
     { title: 'inspiring', },
     { title: 'lovely' },
